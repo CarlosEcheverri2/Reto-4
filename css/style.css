@@ -1,0 +1,34 @@
+:root {
+  /*Primary*/
+
+  /*Text*/
+  --veryDarkDesaturatedBlue: hsl(238, 29%, 16%);
+  --softRed: hsl(14, 88%, 65%);
+  /*Background gradient:*/
+  --softViolet: hsl(273, 75%, 66%);
+  --softBlue: hsl(240, 73%, 65%);
+
+  /*Neutral*/
+
+  /*Text*/
+  --veryDarkDrayishBlue: hsl(237, 12%, 33%);
+  --darkGrayishBlue: hsl(240, 6%, 50%);
+  /*Dividers*/
+  --lightGrayishBlue: hsl(240, 5%, 91%);
+}
+
+body {
+  background-color: var(--softViolet);
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor {
+  margin-top: 100px;
+  background: url(../images/bg-pattern-desktop.svg) left/70% no-repeat;
+  background-position: -100px;
+  background-color: white;
+  height: 500px;
+  border-radius: 20px;
+  width: 1000px;
+}
