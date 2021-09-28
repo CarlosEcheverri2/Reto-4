@@ -3,7 +3,8 @@ const $respuestas = document.querySelectorAll('.item__respuesta')
 const $botones = document.querySelectorAll('.item__click')
 const $preguntas = document.querySelectorAll('.item__pregunta')
 
-let ultimate;
+let ultimate
+let repeat
 
 const cleanText = () =>{ //limpia el estilo de visibilidad de todos los p
     $respuestas.forEach(element => {
@@ -33,6 +34,8 @@ const rotate =(element) =>{//rota el backgraund del boton
         }    
 }
 const negrita =(element)=>{
+
+    (element == repeat)?element.style.fontWeight = "":
     element.style.fontWeight = "bolder";
 }
 
@@ -41,6 +44,7 @@ const action = (element) =>{//ejecucion principal
     cleanQuestion()
     negrita($padre.children[0])
     rotate($padre.children[1])
+    repeat = $padre.children[0]
     $padre = $padre.parentElement
     const $action = $padre.children[1]
     if(!($action == ultimate)){//restriccion para evitar bucle en el mismo boton
@@ -48,6 +52,7 @@ const action = (element) =>{//ejecucion principal
     }  
     $action.classList.toggle('item__respuesta_activa')
     ultimate = $action
+    
 }
 
 document.addEventListener("click",(e) =>{
