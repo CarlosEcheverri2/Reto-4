@@ -1,5 +1,7 @@
+
 const $respuestas = document.querySelectorAll('.item__respuesta')
 const $botones = document.querySelectorAll('.item__click')
+const $preguntas = document.querySelectorAll('.item__pregunta')
 
 let ultimate;
 
@@ -15,6 +17,12 @@ const cleanBoton = () =>{ //limpia el estilo de visibilidad de todos los p
     });
 }
 
+const cleanQuestion = () => {//limpia las negritas de las preguntas
+    $preguntas.forEach(element => {
+        element.style.fontWeight = "";
+    });
+}
+
 const rotate =(element) =>{//rota el backgraund del boton
     if(element.style.getPropertyValue("transform") == "rotate(180deg)"){
         cleanBoton()
@@ -24,10 +32,14 @@ const rotate =(element) =>{//rota el backgraund del boton
         element.style.setProperty("transform","rotate(180deg)")
         }    
 }
+const negrita =(element)=>{
+    element.style.fontWeight = "bolder";
+}
 
-const action = (element) =>{
+const action = (element) =>{//ejecucion principal
     let $padre = element.parentElement
-    //aqui va la negrita
+    cleanQuestion()
+    negrita($padre.children[0])
     rotate($padre.children[1])
     $padre = $padre.parentElement
     const $action = $padre.children[1]
